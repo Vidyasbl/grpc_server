@@ -29,7 +29,7 @@ server.addService(greet.Greeter.service, { sayHello });
 // server.bindAsync('127.0.0.1:50051', grpc.ServerCredentials.createInsecure(), (error)=> {
 
 
-server.bindAsync('https://rest-server-6fqe.onrender.com:50051', grpc.ServerCredentials.createInsecure(), (error) => {
+server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), (error) => {
   console.log('error:');
   console.log(error);
   server.start();
