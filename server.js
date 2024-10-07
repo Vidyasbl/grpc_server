@@ -30,8 +30,10 @@ server.addService(greet.Greeter.service, { sayHello });
 
 const port = process.env.PORT || 4000;
 server.bindAsync('0.0.0.0:' + port, grpc.ServerCredentials.createInsecure(), (error) => {
-  console.log('error:');
-  console.log(error);
+  if (error != null) {
+    console.log('error:');
+    console.log(error); 
+  }
   server.start();
   console.log('gRPC server running on port ' + port);
 });
