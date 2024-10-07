@@ -28,13 +28,12 @@ server.addService(greet.Greeter.service, { sayHello });
 // vidya hotspot, emulator
 // server.bindAsync('127.0.0.1:50051', grpc.ServerCredentials.createInsecure(), (error)=> {
 
-
-server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), (error) => {
+const port = process.env.PORT || 4000;
+server.bindAsync('0.0.0.0:' + port, grpc.ServerCredentials.createInsecure(), (error) => {
   console.log('error:');
   console.log(error);
   server.start();
-  // console.log('gRPC server running on 127.0.0.1:50051');
-  console.log('gRPC server running on https://rest-server-6fqe.onrender.com:50051');
+  console.log('gRPC server running on port ' + port);
 });
 
 
